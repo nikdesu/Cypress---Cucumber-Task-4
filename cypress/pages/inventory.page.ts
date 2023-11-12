@@ -12,7 +12,7 @@ class InventoryPage {
     sortZA: () => cy.get('[value="za"]'),
     sortLOHI: () => cy.get('[value="lohi"]'),
     sortHILO: () => cy.get('[value="hilo"]'),
-    items: () => cy.wrap('[class="inventory_item"]'),
+    items: () => cy.get('[class="inventory_item_name "]'),
   };
 
   logOut() {

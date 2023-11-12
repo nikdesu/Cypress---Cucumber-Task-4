@@ -27,19 +27,15 @@ When("Goes to cart", () => {
   inventoryPage.elements.btnCart().click();
 });
 
-When("User clicks on the dropdown sorting menu", () => {
-  inventoryPage.elements.btnSort().click();
-});
-
-When("Picks any of the sorting {string}", (methods) => {
+When("User clicks on the dropdown sorting menu and picks any of the sorting {string}", (methods) => {
   if (methods == "Low-High") {
-    inventoryPage.elements.sortLOHI().click();
+    inventoryPage.elements.btnSort().select(0);
   } else if (methods == "High-Low") {
-    inventoryPage.elements.sortHILO().click();
+    inventoryPage.elements.btnSort().select(1);
   } else if (methods == "A-Z") {
-    inventoryPage.elements.sortAZ().click();
+    inventoryPage.elements.btnSort().select(2);
   } else if (methods == "Z-A") {
-    inventoryPage.elements.sortZA().click();
+    inventoryPage.elements.btnSort().select(3);
   }
 });
 
@@ -51,7 +47,7 @@ Then("Items should be sorted due to picked {string}", (methods) => {
   } else if (methods == "A-Z") {
     inventoryPage.elements.items().eq(0).should("contain", inventory_items.onesie);
   } else if (methods == "Z-A") {
-    inventoryPage.elements.items().eq(0).should("contain", inventory_items.bike_light);
+    inventoryPage.elements.items().eq(0).should("contain", inventory_items.jacket);
   }
 });
 
