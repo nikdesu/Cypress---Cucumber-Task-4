@@ -15,6 +15,10 @@ When("Opens sidebar menu", () => {
   inventoryPage.elements.btnMenu().click();
 });
 
+When("Goes back to inventory page", () => {
+  inventoryPage.elements.btnAllItems().click();
+});
+
 When("Clicks on logout button", () => {
   inventoryPage.elements.btnLogout().click();
 });

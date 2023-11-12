@@ -28,6 +28,10 @@ When("Enters all needed info and clicks on 'Finish' button", () => {
   checkoutPage.elements.btnFinish().click();
 });
 
+When("Removes newly added product", () => {
+  cartPage.elements.btnRemove().click();
+});
+
 Then("Confirms that checkout is complete and goes back to inventory page", () => {
   cy.url().should("contain", endpoints.checkout_success);
   checkoutPageComp.elements.btnHome().click();
@@ -36,4 +40,8 @@ Then("Confirms that checkout is complete and goes back to inventory page", () =>
 Then("Goes to cart again and checks if item is still there", () => {
   inventoryPage.elements.btnCart().click();
   cartPage.elements.textItemNameList().should("contain", inventory_items.backpack);
+});
+
+Then("Confirms that cart is empty", () => {
+  cartPage.elements.textItemNameList().should('not.exist');
 });

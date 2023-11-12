@@ -19,3 +19,13 @@ Feature: Cart
         And Checks that item added before is there and clicks on 'Checkout' button
         And Enters all needed info and clicks on 'Finish' button
         Then Confirms that checkout is complete and goes back to inventory page
+
+    Scenario: Removing added product from cart
+        When User adds any product to cart
+        And Goes to cart 
+        And Checks that item added before is there
+        And Removes newly added product
+        And Opens sidebar menu
+        And Goes back to inventory page
+        And Goes to cart 
+        Then Confirms that cart is empty
