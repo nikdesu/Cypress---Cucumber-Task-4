@@ -1,10 +1,6 @@
 import { When, Then, Given } from "@badeball/cypress-cucumber-preprocessor";
 import { loginPage } from "@pages/login.page";
 import { inventoryPage } from "@pages/inventory.page";
-import { cartPage } from "@pages/cart.page";
-import { faker } from "@faker-js/faker";
-import { checkoutPage } from "@pages/checkOut.page";
-import { checkoutPageComp } from "@pages/checkOutComp.page";
 import credentials from "../../fixtures/credentials.json";
 import endpoints from "../../fixtures/endpoints.json";
 import inventory_items from "../../fixtures/inventory_items.json";
@@ -23,20 +19,58 @@ When("Clicks on logout button", () => {
   inventoryPage.elements.btnLogout().click();
 });
 
-When("User clicks on {string} button", (Socials) => {
-  if (Socials == "Twitter") {
-    inventoryPage.elements.btnTwitter().click();
-  } else if (Socials == "Facebook") {
-    inventoryPage.elements.btnFB().click();
-  } else if (Socials == "LinkedIn") {
-    inventoryPage.elements.btnLI().click();
-  }
-});
-
 When("User adds any product to cart", () => {
   inventoryPage.elements.btnAddToCartBackPack().click();
 });
 
 When("Goes to cart", () => {
   inventoryPage.elements.btnCart().click();
+});
+
+When("User clicks on the dropdown sorting menu", () => {
+  inventoryPage.elements.btnSort().click();
+});
+
+When("Picks any of the sorting {string}", (methods) => {
+  if (methods == "Low-High") {
+    inventoryPage.elements.sortLOHI().click();
+  } else if (methods == "High-Low") {
+    inventoryPage.elements.sortHILO().click();
+  } else if (methods == "A-Z") {
+    inventoryPage.elements.sortAZ().click();
+  } else if (methods == "Z-A") {
+    inventoryPage.elements.sortZA().click();
+  }
+});
+
+Then("Items should be sorted due to picked {string}", (methods) => {
+  if (methods == "Low-High") {
+    inventoryPage.elements.items().eq(0).should("contain", inventory_items.backpack);
+  } else if (methods == "High-Low") {
+    inventoryPage.elements.items().eq(0).should("contain", inventory_items.redShirt);
+  } else if (methods == "A-Z") {
+    inventoryPage.elements.items().eq(0).should("contain", inventory_items.onesie);
+  } else if (methods == "Z-A") {
+    inventoryPage.elements.items().eq(0).should("contain", inventory_items.bike_light);
+  }
+});
+
+When("User clicks on {string} button", (socials) => {
+  if (socials == "Twitter") {
+    inventoryPage.elements.btnTwitter().invoke("removeAttr", "target").click();
+  } else if (socials == "Facebook") {
+    inventoryPage.elements.btnFB().invoke("removeAttr", "target").click();
+  } else if (socials == "LinkedIn") {
+    inventoryPage.elements.btnLI().invoke("removeAttr", "target").click();
+  }
+});
+
+Then("Gets redirected to {string} page and confirms that user was redirected to correspondent page", (socials) => {
+  if (socials == "Twitter") {
+    cy.url().should("contain", endpoints.twitter);
+  } else if (socials == "Facebook") {
+    cy.url().should("contain", endpoints.facebook);
+  } else if (socials == "LinkedIn") {
+    cy.url().should("contain", endpoints.linkedin);
+  }
 });
