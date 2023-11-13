@@ -1,4 +1,4 @@
-name: Cypress testing
+name: Cypress + Cucumber testing
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests 
-        run: cypress run --browser chrome --spec cypress/e2e/features/*
+        run: npx cypress run --browser chrome --spec cypress/e2e/features/*
       - name: Set up GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
