@@ -1,4 +1,5 @@
 # Cypress---Cucumber-Task-4
+
 <a name="readme-top"></a>
 
 <!-- TABLE OF CONTENTS -->
@@ -23,17 +24,23 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
+
 ## About the project
+
 This repository contains an example project that combines Cypress, Cucumber, and TypeScript to facilitate efficient end-to-end testing for your web applications. This README provides essential information on setting up, running tests, and maintaining the project.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
+
 ## Getting started
+
 ### Prerequisites
 
 Before running the tests, make sure you have the following dependencies installed:
 
 Node.js: Install Node.js from https://nodejs.org/en
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Installation
@@ -54,33 +61,45 @@ Node.js: Install Node.js from https://nodejs.org/en
    ```bash
    npm install -D cypress @bahmutov/cypress-esbuild-preprocessor esbuild
    ```
-. Install the project dependencies:
+   . Install the project dependencies:
    ```bash
    npm install
    ```
-   <p align="right">(<a href="#readme-top">back to top</a>)</p>
-<!-- USAGE EXAMPLES -->
+      <p align="right">(<a href="#readme-top">back to top</a>)</p>
+   <!-- USAGE EXAMPLES -->
+
 ## Running test
 
 To run the test suite, execute the following command:
+
 ```bash
 npm run test
 ```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- WRITING TESTS -->
-## Writing tests 
+
+## Writing tests
+
 You can start writing your own tests in the tests directory. Follow the Cypress and Cucumber API documentations to interact with your web application.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- TEST REPORTS -->
-## Test reports 
-This will create a .html test report 
+
+## Test reports
+
+This will create a .html test report
+
 ```bash
 node ./cucumber-html-report.ts
 ```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GITHUB PAGE -->
+
 ## Github page
+
 You can look at test reports using this link https://nikdesu.github.io/Cypress---Cucumber-Task-4/
