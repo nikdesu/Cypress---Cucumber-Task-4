@@ -54,7 +54,7 @@ Node.js: Install Node.js from https://nodejs.org/en
    ```bash
    npm install -D cypress @bahmutov/cypress-esbuild-preprocessor esbuild
    ```
-. Install the project dependencies:
+5. Install the project dependencies:
    ```bash
    npm install
    ```
