@@ -11,14 +11,18 @@ Feature: Cart
         And Opens sidebar menu
         And Clicks on logout button
         And Enters valid credentials
-        Then Goes to cart again and checks if item is still there
+        And Goes to cart
+        Then Checks that item added before is there
 
     Scenario: Successful checkout
         When User adds any product to cart
         And Goes to cart
-        And Checks that item added before is there and clicks on 'Checkout' button
-        And Enters all needed info and clicks on 'Finish' button
-        Then Confirms that checkout is complete and goes back to inventory page
+        And Checks that item added before is there 
+        And Clicks on 'Checkout' button
+        And Enters all needed info 
+        And Clicks on 'Finish' button
+        And Confirms that checkout is complete 
+        Then Goes back to inventory page
 
     Scenario: Removing added product from cart
         When User adds any product to cart

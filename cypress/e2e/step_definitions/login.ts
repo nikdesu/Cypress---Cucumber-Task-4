@@ -36,7 +36,9 @@ Then("Confirm that error 'Epic sadface: Username and password do not match any u
 });
 
 Then("Confirm that error 'Epic sadface: Sorry, this user has been locked out.' appeared", () => {
-  loginPage.elements.errorMsg().should("contain", "Epic sadface: Sorry, this user has been locked out.");
+  loginPage.elements
+  .errorMsg()
+  .should("contain", "Epic sadface: Sorry, this user has been locked out.");
 });
 
 When("User opens sidebar menu", () => {

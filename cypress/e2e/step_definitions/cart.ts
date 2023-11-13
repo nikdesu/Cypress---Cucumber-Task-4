@@ -1,6 +1,5 @@
 import { When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import { loginPage } from "@pages/login.page";
-import { inventoryPage } from "@pages/inventory.page";
 import { cartPage } from "@pages/cart.page";
 import { faker } from "@faker-js/faker";
 import { checkoutPage } from "@pages/checkOut.page";
@@ -17,13 +16,15 @@ When("Enters valid credentials", () => {
   loginPage.logIn(credentials.username, credentials.password);
 });
 
-When("Checks that item added before is there and clicks on 'Checkout' button", () => {
-  cartPage.elements.textItemNameList().should("contain", inventory_items.backpack);
+When("Clicks on 'Checkout' button", () => {
   cartPage.elements.btnCOUT().click();
 });
 
-When("Enters all needed info and clicks on 'Finish' button", () => {
+When("Enters all needed info", () => {
   checkoutPage.inputInfo(faker.person.firstName(), faker.person.lastName(), faker.location.zipCode());
+});
+
+When("Clicks on 'Finish' button", () => {
   checkoutPage.elements.btnFinish().click();
 });
 
@@ -31,18 +32,12 @@ When("Removes newly added product", () => {
   cartPage.elements.btnRemove().click();
 });
 
-When("Clicks on 'Checkout' button", () => {
-  cartPage.elements.btnCOUT().click();
-});
-
-Then("Confirms that checkout is complete and goes back to inventory page", () => {
+When("Confirms that checkout is complete", () => {
   cy.url().should("contain", endpoints.checkout_success);
-  checkoutPageComp.elements.btnHome().click();
 });
 
-Then("Goes to cart again and checks if item is still there", () => {
-  inventoryPage.elements.btnCart().click();
-  cartPage.elements.textItemNameList().should("contain", inventory_items.backpack);
+Then("Goes back to inventory page", () => {
+  checkoutPageComp.elements.btnHome().click();
 });
 
 Then("Confirms that cart is empty", () => {

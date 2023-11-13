@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { defineConfig } = require("cypress");
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
@@ -8,7 +7,6 @@ async function setupNodeEvents(
   on: (arg0: string, arg1: any) => void,
   config: any
 ) {
-  // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
   await preprocessor.addCucumberPreprocessorPlugin(on, config);
 
   on(
@@ -18,7 +16,6 @@ async function setupNodeEvents(
     })
   );
 
-  // Make sure to return the config object as it might have been modified by the plugin.
   return config;
 }
 
@@ -29,12 +26,6 @@ module.exports = defineConfig({
     chromeWebSecurity: false,
     video: false,
     setupNodeEvents,
-    specPattern: "cypress/e2e/features/*.feature",
-    baseUrl: "https://magento.softwaretestingboard.com/",
-    env: {
-      allureReuseAfterSpec: true,
-      USER_EMAIL: "test1234@mailsac.com",
-      USER_PASSWORD: "Qwerty1234",
-    },
+    specPattern: "cypress/e2e/features/*.feature"
   },
 });

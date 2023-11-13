@@ -2,7 +2,7 @@
   "scripts": {
     "test": "npm run cypress:run || npm run report:generate",
     "cypress:run": "cypress run --browser chrome --spec cypress/e2e/features/*",
-    "report:generate": "node ./cucumber-html-report.js",
+    "report:generate": "node ./cucumber-html-report.ts",
     "report:clear": "rimraf --glob ./reports && rimraf --glob ./jsonlogs && rimraf --glob ./cypress/screenshots"
   },
   "devDependencies": {
@@ -11,7 +11,7 @@
     "@faker-js/faker": "^8.2.0",
     "cypress": "^12.0.2",
     "esbuild": "^0.16.4",
-    "multiple-cucumber-html-reporter": "^3.0.1",
+    "multiple-cucumber-html-reporter": "^3.5.0",
     "typescript": "^5.0.4"
   },
   "cypress-cucumber-preprocessor": {
