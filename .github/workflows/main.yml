@@ -25,9 +25,11 @@ jobs:
         run: chmod +x cucumber-json-formatter
 
       - name: Run Cypress tests 
-        run: npx cypress run --browser chrome --spec cypress/e2e/features/* || true
+        run: npm run test
+        id: runCypressTest
         
-      - name: Set up GitHub Pages
+      - name: Set up GitHub Pages 
+        if: ${{ steps.runCypressTest.outcome == 'success' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
