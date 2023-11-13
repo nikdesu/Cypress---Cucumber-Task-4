@@ -1,0 +1,41 @@
+name: Cypress + Cucumber testing
+
+on:
+  workflow_dispatch: 
+  push:
+    branches:
+      - main 
+
+jobs:
+  cypress_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Make cucumber-json-formatter executable
+        run: npx chmod +x cucumber-json-formatter
+
+      - name: Verify that you can run it
+        run: cucumber-json-formatter --help
+        
+      - name: Run Cypress tests 
+        run: npm run test
+        id: runCypressTest
+        
+      - name: Set up GitHub Pages 
+        if: ${{ steps.runCypressTest.outcome == 'success' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports/cucumber-htmlreport.html
+          publish_branch: cypress-cucumber-report
