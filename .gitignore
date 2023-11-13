@@ -1,7 +1,0 @@
-node_modules/
-reports/**
-jsonlogs
-cypress/screenshots/*
-cypress/videos/*
-cypress/downloads/*
-.env
