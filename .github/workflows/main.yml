@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Make cucumber-json-formatter executable
-        run: npx chmod +x cucumber-json-formatter
+        run: chmod +x cucumber-json-formatter
         
       - name: Run Cypress tests 
         run: npm run test
