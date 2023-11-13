@@ -59,7 +59,7 @@ Node.js: Install Node.js from https://nodejs.org/en
    npm install
    ```
    <p align="right">(<a href="#readme-top">back to top</a>)</p>
-<!-- USAGE EXAMPLES -->
+<!-- RUNNING TEST -->
 ## Running test
 
 To run the test suite, execute the following command:
@@ -84,3 +84,4 @@ node ./cucumber-html-report.ts
 <!-- GITHUB PAGE -->
 ## Github page
 You can look at test reports using this link https://nikdesu.github.io/Cypress---Cucumber-Task-4/
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
