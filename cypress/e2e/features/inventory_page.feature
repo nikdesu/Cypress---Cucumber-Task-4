@@ -4,6 +4,12 @@ Feature: Inventory page
     Background:
         Given User is logged in and inventory page is opened
 
+    Scenario: 'All items' button functionality
+        When Goes to cart
+        And Opens sidebar menu
+        And Clicks on 'All items' button and gets redirected to the inventory page
+        Then Confirm that user was redirected to inventory page
+
     Scenario: Testing sorting feature
         When User clicks on the dropdown sorting menu and picks any of the sorting "<methods>"
         Then Items should be sorted due to picked "<methods>"

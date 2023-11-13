@@ -15,12 +15,16 @@ When("Opens sidebar menu", () => {
   inventoryPage.elements.btnMenu().click();
 });
 
-When("Goes back to inventory page", () => {
-  inventoryPage.elements.btnAllItems().click();
-});
-
 When("Clicks on logout button", () => {
   inventoryPage.elements.btnLogout().click();
+});
+
+When("Clicks on 'About' button", () => {
+  inventoryPage.elements.btnAbout().click();
+});
+
+When("Clicks on 'All items' button and gets redirected to the inventory page", () => {
+  inventoryPage.elements.btnAllItems().click();
 });
 
 When("User adds any product to cart", () => {
@@ -73,4 +77,12 @@ Then("Gets redirected to {string} page and confirms that user was redirected to 
   } else if (socials == "LinkedIn") {
     cy.url().should("contain", endpoints.linkedin);
   }
+});
+
+Then("Gets redirected to SauceLabs page", () => {
+  cy.url().should("contain", endpoints.saucelabs);
+});
+
+Then("Confirm that user was redirected to inventory page", () => {
+  cy.url().should("contain", endpoints.inventory);
 });

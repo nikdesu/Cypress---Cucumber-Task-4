@@ -22,10 +22,13 @@ Feature: Cart
 
     Scenario: Removing added product from cart
         When User adds any product to cart
-        And Goes to cart 
+        And Goes to cart
         And Checks that item added before is there
         And Removes newly added product
-        And Opens sidebar menu
-        And Goes back to inventory page
-        And Goes to cart 
         Then Confirms that cart is empty
+
+    Scenario: Checkout with empty cart
+        When Goes to cart
+        And Confirms that cart is empty
+        And Clicks on 'Checkout' button
+        Then Error 'Cart is empty' appears

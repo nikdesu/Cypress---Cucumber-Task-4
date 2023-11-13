@@ -4,6 +4,7 @@ class InventoryPage {
     btnLogout: () => cy.get("#logout_sidebar_link"),
     btnCart: () => cy.get('[class="shopping_cart_link"]'),
     btnAllItems: () => cy.get("#inventory_sidebar_link"),
+    btnAbout: () => cy.get("#about_sidebar_link"),
     btnAddToCartBackPack: () => cy.get("#add-to-cart-sauce-labs-backpack"),
     btnTwitter: () => cy.get('[class="social_twitter"] a'),
     btnFB: () => cy.get('[class="social_facebook"] a'),
