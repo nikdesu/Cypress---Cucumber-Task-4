@@ -1,0 +1,31 @@
+name: Cypress testing
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  cypress_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests 
+        run: cypress run --browser chrome --spec cypress/e2e/features/*
+      - name: Set up GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./cypress/reports/html
+          publish_branch: cypress-cucumber-report
