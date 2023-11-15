@@ -37,7 +37,7 @@ jobs:
         run: npm run report:generate
         
       - name: Set up GitHub Pages 
-        if: ${{ steps.runCypressTest.outcome == 'success' && steps.runCypressTest.outcome == 'failed'}}
+        if: ${{ steps.runCypressTest.outcome == 'success' || steps.runCypressTest.outcome == 'failed'}}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
