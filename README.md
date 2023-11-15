@@ -61,13 +61,12 @@ Node.js: Install Node.js from https://nodejs.org/en
    ```bash
    npm install -D cypress @bahmutov/cypress-esbuild-preprocessor esbuild
    ```
-   . Install the project dependencies:
+. Install the project dependencies:
    ```bash
    npm install
    ```
-      <p align="right">(<a href="#readme-top">back to top</a>)</p>
-   <!-- USAGE EXAMPLES -->
-
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- USAGE EXAMPLES -->
 ## Running test
 
 To run the test suite, execute the following command:
