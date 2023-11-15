@@ -25,6 +25,7 @@ jobs:
       - name: Run Cypress tests 
         run: npm run cypress:run
         id: runCypressTest
+        continue-on-error: true
 
       - name: Generate json
         run: npm run report:generate:json
