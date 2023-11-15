@@ -21,9 +21,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Make cucumber-json-formatter executable
-        run: chmod +x cucumber-json-formatter
         
       - name: Run Cypress tests 
         run: npm run test
@@ -34,5 +31,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./reports/cucumber-htmlreport.html
+          publish_dir: ./reports/cucumber-report.html
           publish_branch: cypress-cucumber-report
