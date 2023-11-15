@@ -21,10 +21,17 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        
+
       - name: Run Cypress tests 
-        run: npm run test
+        run: npm run cypress:run
         id: runCypressTest
+        continue-on-error: true
+
+      - name: Generate json
+        run: npm run report:generate:json
+        
+      - name: Generate report
+        run: npm run report:generate
         
       - name: Set up GitHub Pages 
         if: ${{ steps.runCypressTest.outcome == 'success' }}
