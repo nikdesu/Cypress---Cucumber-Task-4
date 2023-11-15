@@ -17,11 +17,6 @@
     "typescript": "^5.0.4"
   },
   "cypress-cucumber-preprocessor": {
-    "json": {
-        "enabled": true,
-        "output": "jsonlogs/log.json",
-        "formatter": "cucumber-json-formatter"
-    },
     "messages": {
         "enabled": true,
         "output": "jsonlogs/messages.ndjson"
