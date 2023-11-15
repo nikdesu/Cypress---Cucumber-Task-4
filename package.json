@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "npm run cypress:run || npm run report:generate || npx ts-node ./generate-cucumber-json.ts",
+    "test": "npm run cypress:run || npx ts-node ./generate-cucumber-json.ts || npm run report:generate ",
     "cypress:run": "cypress run --browser chrome --spec cypress/e2e/features/*",
     "report:generate": "node ./cucumber-html-report.ts",
     "report:generate:json": "npx ts-node ./generate-cucumber-json.ts",
