@@ -18,16 +18,16 @@
   },
   "cypress-cucumber-preprocessor": {
     "messages": {
-        "enabled": true,
-        "output": "jsonlogs/messages.ndjson"
+      "enabled": true,
+      "output": "jsonlogs/messages.ndjson"
     },
     "stepDefinitions": [
-        "[filepath]/**/*.{js,ts}",
-        "[filepath].{js,ts}",
-        "cypress/e2e/step_definitions/*.{js,ts}",
-        "[filepath]\\***.{js,ts}",
-        "[filepath].{js,ts}",
-        "cypress\\e2e\\step_definitions\\*.{js,ts}"
+      "[filepath]/**/*.{js,ts}",
+      "[filepath].{js,ts}",
+      "cypress/e2e/step_definitions/*.{js,ts}",
+      "[filepath]\\***.{js,ts}",
+      "[filepath].{js,ts}",
+      "cypress\\e2e\\step_definitions\\*.{js,ts}"
     ]
   }
 }
