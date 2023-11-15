@@ -2,9 +2,10 @@
   "scripts": {
     "test": "npm run cypress:run || npm run report:generate",
     "cypress:run": "cypress run --browser chrome --spec cypress/e2e/features/*",
-    "report:generate": "npx ts-node ./generate-cucumber-json.ts",
+    "report:generate": "node ./cucumber-html-report.ts",
+    "report:generate:json": "npx ts-node ./generate-cucumber-json.ts",
     "report:clear": "rimraf --glob ./reports && rimraf --glob ./jsonlogs && rimraf --glob ./cypress/screenshots"
-},
+  },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^15.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
@@ -16,17 +17,22 @@
     "typescript": "^5.0.4"
   },
   "cypress-cucumber-preprocessor": {
+    "json": {
+        "enabled": true,
+        "output": "jsonlogs/log.json",
+        "formatter": "cucumber-json-formatter"
+    },
     "messages": {
-      "enabled": true,
-      "output": "jsonlogs/messages.ndjson"
+        "enabled": true,
+        "output": "jsonlogs/messages.ndjson"
     },
     "stepDefinitions": [
-      "[filepath]/**/*.{js,ts}",
-      "[filepath].{js,ts}",
-      "cypress/e2e/step_definitions/*.{js,ts}",
-      "[filepath]\\***.{js,ts}",
-      "[filepath].{js,ts}",
-      "cypress\\e2e\\step_definitions\\*.{js,ts}"
+        "[filepath]/**/*.{js,ts}",
+        "[filepath].{js,ts}",
+        "cypress/e2e/step_definitions/*.{js,ts}",
+        "[filepath]\\***.{js,ts}",
+        "[filepath].{js,ts}",
+        "cypress\\e2e\\step_definitions\\*.{js,ts}"
     ]
   }
 }
